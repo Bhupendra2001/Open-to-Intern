@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 const validName = (name) =>
 {
     const nameRegex = 
-    /^[a-zA-Z0-9\s]+$/
+    /^[a-zA-Z\s]+$/
     return nameRegex.test(name)
 } 
 
