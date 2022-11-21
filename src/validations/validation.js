@@ -25,6 +25,11 @@ const isvalidObjectid = (objectId) =>
     return mongoose.Types.ObjectId.isValid(objectId)
 }
 
+//validation for mobile
+const isvalidMobile = (mobile)=>
+{
+    const mobileRegex = /^[0-9]\d{9}$/
+    return mobileRegex.test(mobile)
+}
 
-
-module.exports = { validName, isValidEmail , isvalidObjectid }
+module.exports = { validName, isValidEmail , isvalidObjectid, isvalidMobile }

@@ -1,7 +1,8 @@
 
-const ContModel = require("../models/collegeModel")
+const CollegeModel = require("../models/collegeModel")
 const validation = require('../validations/validation')
 const   { validName } = validation
+
 
 const createCollege = async (req, res) => {
 
@@ -31,7 +32,7 @@ const createCollege = async (req, res) => {
     if(!validName(fullName)) return res.status(404).send({status : false, msg : "inValid fullName"})
 
 
-    const saveData = await ContModel.create(body)
+    const saveData = await CollegeModel.create(body)
     return res.status(201).send({status : true, msg : "data successfully created", data : saveData})
     }
     
