@@ -1,0 +1,24 @@
+{
+  "name": "project-internshipgroup39",
+  "version": "1.0.0",
+  "description": "project 2 groups 39",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harsh25081/project-internshipGroup39.git"
+  },
+  "author": "bhupendra , harsh , ganesh, shadaab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harsh25081/project-internshipGroup39/issues"
+  },
+  "homepage": "https://github.com/Harsh25081/project-internshipGroup39#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "nodemon": "^2.0.20"
+  }
+}
