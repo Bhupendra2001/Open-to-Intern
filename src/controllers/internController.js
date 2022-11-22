@@ -4,17 +4,15 @@ const validation = require('../validations/validation')
 const { isValidEmail, validName, isvalidMobile } = validation
 
 
-
-
 const createIntern = async function (req, res) {
     try {
         let data = req.body;
         if (Object.keys(data).length == 0) return res.status(400).send({ status: false, message: "Data must be present" });
         let { name, email, mobile, collegeName } = data;
-        if (!name) return res.status(400).send({ status: false, msg: "name is mandatory" })
-        if (!email) return res.status(400).send({ status: false, msg: "email is mandatory" })
-        if (!mobile) return res.status(400).send({ status: false, msg: "mobile is mandatory" })
-        if (!collegeName) return res.status(400).send({ status: false, msg: "collegeName is mandatory" })
+        if (!name) return res.status(400).send({ status: false, message: "name is mandatory" })
+        if (!email) return res.status(400).send({ status: false, message: "email is mandatory" })
+        if (!mobile) return res.status(400).send({ status: false, message: "mobile is mandatory" })
+        if (!collegeName) return res.status(400).send({ status: false, message: "collegeName is mandatory" })
 
         if (!validName(name)) { return res.status(400).send({ status: false, message: "Invalid format of Name" }); }
         if (!validName(collegeName)) { return res.status(400).send({ status: false, message: "Invalid format of College name" }); }
@@ -29,7 +27,7 @@ const createIntern = async function (req, res) {
         let collegeExists = await collegeModel.findOne({ "name": collegeName })
         if (!collegeExists) return res.status(404).send({ status: false, mesage: "No such college found" })
         let intern = await internModel.create({
-            name,email,mobile,collegeId: collegeExists._id,isDeleted: data.isDeleted
+            name, email, mobile, collegeId: collegeExists._id, isDeleted: data.isDeleted
         })
         return res.status(201).send({ status: true, data: intern });
     } catch (error) {
@@ -38,4 +36,3 @@ const createIntern = async function (req, res) {
 }
 
 module.exports = { createIntern }
-
