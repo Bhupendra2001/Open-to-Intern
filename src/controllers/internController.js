@@ -4,6 +4,7 @@ const validation = require('../validations/validation')
 const { isValidEmail, validName, isvalidMobile } = validation
 
 
+
 const createIntern = async function (req, res) {
     try {
         let data = req.body;

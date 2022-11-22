@@ -14,7 +14,7 @@ const createCollege = async (req, res) => {
         if (!fullName) return res.status(400).send({ status: false, message: "fullName is required" })
         if (!logoLink) return res.status(400).send({ status: false, message: "logoLink is required" })
         if (!validName(name)) return res.status(400).send({ status: false, message: "inValid name" })
-        let checkname = await collegeModel.find({ name })
+        let checkname = await collegeModel.find({ name }) 
         if (checkname.length != 0) return res.status(400).send({ status: false, message: "Pls provide a unique name" })
         if (!validName(fullName)) return res.status(400).send({ status: false, message: "inValid fullName" })
         const saveData = await collegeModel.create(body)

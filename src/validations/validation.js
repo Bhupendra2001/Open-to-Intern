@@ -9,6 +9,7 @@ const validName = (name) => {
 }
 
 
+
 // validation of email 
 const isValidEmail = (email) => {
     const emailRegex =
@@ -22,10 +23,12 @@ const isvalidObjectid = (objectId) => {
     return mongoose.Types.ObjectId.isValid(objectId)
 }
 
+
 //validation for mobile
 const isvalidMobile = (mobile) => {
-    const mobileRegex = /^[0-9]\d{9}$/
+    const mobileRegex = /^[6-9]\d{9}$/
     return mobileRegex.test(mobile)
 }
+
 
 module.exports = { validName, isValidEmail, isvalidObjectid, isvalidMobile }
