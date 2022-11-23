@@ -18,7 +18,7 @@ const createIntern = async function (req, res) {
         if (!validName(name)) { return res.status(400).send({ status: false, message: "Invalid format of Name" }); }
         if (!validName(collegeName)) { return res.status(400).send({ status: false, message: "Invalid format of College name" }); }
         if (!isvalidMobile(mobile)) { return res.status(400).send({ status: false, message: "Invalid format of Mobile Number" }); }
-        if (!isValidEmail) { return res.status(400).send("Email id is invalid.") }
+        if (!isValidEmail(email)) { return res.status(400).send({status:false,message:" Email id is invalid."}) }
 
         let emailUnique = await internModel.findOne({ email: email })
         if (emailUnique) return res.status(400).send({ status: false, message: "Email already exists , please provide other." })

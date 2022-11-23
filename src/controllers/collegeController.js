@@ -1,6 +1,7 @@
 const collegeModel = require("../models/collegeModel")
 const internModel = require("../models/InternModel")
 const validation = require('../validations/validation')
+const axios = require('axios')
 const { validName } = validation
 
 
@@ -17,6 +18,15 @@ const createCollege = async (req, res) => {
         let checkname = await collegeModel.find({ name }) 
         if (checkname.length != 0) return res.status(400).send({ status: false, message: "Pls provide a unique name" })
         if (!validName(fullName)) return res.status(400).send({ status: false, message: "inValid fullName" })
+
+        let correctLink = false
+        await axios.get(logoLink)
+        .then((res) => { correctLink = true })
+        .catch((error) => { correctLink = false })
+        if (correctLink === false) {
+        return res.status(400).send({ status: false, message: "URL is wrong" })
+        }
+
         const saveData = await collegeModel.create(body)
         return res.status(201).send({ status: true, message: "data successfully created", data: saveData })
     } catch (err) {

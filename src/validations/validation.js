@@ -13,7 +13,7 @@ const validName = (name) => {
 // validation of email 
 const isValidEmail = (email) => {
     const emailRegex =
-        /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
+    /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
     return emailRegex.test(email)
 }
 
