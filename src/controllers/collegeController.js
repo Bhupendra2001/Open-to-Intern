@@ -6,6 +6,7 @@ const { validName } = validation
 
 
 const createCollege = async (req, res) => {
+    // res.setHeader('Access-Control-Allow-Origin','*')
     try {
         let body = req.body
         let { name, fullName, logoLink } = body
@@ -35,6 +36,7 @@ const createCollege = async (req, res) => {
 }
 
 const getCollegeData = async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin','*')
     try {
         let collegeName = req.query.collegeName
         if (!collegeName) return res.status(400).send({ status: false, message: "Pls provide College Name" })
